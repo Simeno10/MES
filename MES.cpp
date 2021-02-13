@@ -11,16 +11,15 @@ struct element {
     int ID[4];
 };
 struct Globaldata{
-    int H=0, W=0, nH=0, nW=0, nN=0;
-	const int nE=15;
+    int H=0, W=0, nH=0, nW=0, nE=0, nN=0;
 };
 int main()
 {
 	Globaldata x;
+	node node[100];
 	ifstream odczyt("dane.txt");
 
     odczyt >> x.H>>x.W>>x.nH>>x.nW;
-	//cout << x.nE << endl;
 
 	const int a = 15;
 
@@ -32,7 +31,7 @@ int main()
 		{
 			Elem[i].ID[0] = 1;
 		}
-		else if(i%5==0)
+		else if(i%(x.H-1)==0)
 		{
 			Elem[i].ID[0] = Elem[i - 1].ID[0] + 2;
 		}
@@ -47,7 +46,7 @@ int main()
 
 	odczyt.close(); 
 
-	cout << Elem[6].ID[2];
+	cout << Elem[13].ID[2];
 
 
 	return 0;
