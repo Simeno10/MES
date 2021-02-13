@@ -15,17 +15,20 @@ struct Globaldata{
 };
 int main()
 {
-    //int a;
 	Globaldata x;
 	ifstream odczyt("dane.txt");
 
-	odczyt >> x.H;
+    odczyt >> x.H>>x.W>>x.nH>>x.nW;
 
-	//odczyt.close(); 
+	element pierwszy;
+	pierwszy.ID[0] = 1;
+	pierwszy.ID[1] = pierwszy.ID[0]+x.nH;
+	pierwszy.ID[2] = pierwszy.ID[1]+1;
+	pierwszy.ID[3] = pierwszy.ID[0]+1;
 
-	//node d{5,7};
+	odczyt.close(); 
 
-	cout << x.H;
+	cout << pierwszy.ID[2];
 
 
 	return 0;
